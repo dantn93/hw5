@@ -15,7 +15,8 @@ const uploadAvatar = async (req, res) => {
   const size = _.get(req, 'file.size:', 0);
 
   // Check image type
-  if(mimeType === 'image/png' || mimeType === 'image/jpg' || mimeType === 'image/gif') {
+  console.log("\n\n\n\nmimeType", mimeType)
+  if(mimeType === 'image/png' || mimeType === 'image/jpg' || mimeType === 'image/gif' || mimeType === 'image/jpeg') {
   } else {
     res.json({success: false, error: 'file is not image'});
   }

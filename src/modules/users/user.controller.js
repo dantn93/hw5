@@ -3,6 +3,7 @@ const User = require('../../models/User');
 
 const users = async (req, res) => {
   let users = await User.find({}).exec();
+  await res.render('users', {users: users});
 };
 
 const GetAllUsers = async (req, res) => {
@@ -26,7 +27,6 @@ const CreateUsers = async (req, res) => {
     await User.create(user);
     res.json({success: true});
   } catch (error) {
-    console.log(error.message)
     res.json({success: false, error: error.message});
   }
 }
